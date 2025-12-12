@@ -100,12 +100,28 @@ This histogram shows how calories are distributed across recipes. Most recipes f
 </iframe>
 
 
-### Bivariate Analysis: Nutrition vs. Rating
+### Bivariate Analysis
 
 This correlation heatmap compares each nutrition column to the average rating. Most of the nutrition features (calories, fat, sugar, carbs, etc.) are strongly positively correlated with each other, but their correlations with `avg` are all very close to zero. This suggests that, in this dataset, recipes aren’t really rated higher or lower based on their nutrition numbers alone.
 
 <iframe src="assets/nutrition_rating_corr.html" width="800" height="550" frameborder="0"></iframe>
 
+
+### Interesting Aggregate
+
+To dig a little deeper, we created a grouped summary that looks at how **protein content** varies across recipes with different average ratings. Starting from our cleaned data, we:
+   - Rounded each recipe’s average rating (`avg`) to the nearest whole number to get a 1–5 star **rating_level**.
+   - Grouped recipes by this `rating_level`.
+   - For each group, computed the **mean protein percentage (PDV)**
+     
+This bar chart shows that the average protein (PDV) is pretty similar across all rating levels. However, 3-star and 4-star recipes have slightly higher mean protein than 1- and 2-star recipes, suggesting that better-rated recipes tend to be a bit more protein-dense on average.
+
+<iframe
+  src="assets/mean_protein_by_rating.html"
+  width="800"
+  height="500"
+  frameborder="0">
+</iframe>
 
 # Baseline Model
 
