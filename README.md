@@ -163,7 +163,7 @@ Because the p-value is effectively zero and far below 0.05, we reject the null h
   frameborder="0">
 </iframe>
 
-The histogram above compares the distribution of `n_steps` for recipes whose rating is missing (red) versus not missing (blue). Recipes with missing ratings tend to have slightly more steps on average—the red bars are a bit more spread to the right—suggesting that longer, more complex recipes are more likely to be missing ratings.
+The histogram above compares the distribution of `n_steps` for recipes whose rating is missing (red) versus not missing (blue). Recipes with missing ratings tend to have slightly more steps on average, the red bars are a bit more spread to the right, suggesting that longer, more complex recipes are more likely to be missing ratings.
 
 
 # Baseline Model
