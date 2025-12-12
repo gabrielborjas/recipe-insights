@@ -123,6 +123,19 @@ This bar chart shows that the average protein (PDV) is pretty similar across all
   frameborder="0">
 </iframe>
 
+
+### Assessment of Missingness
+
+## NMAR Analysis
+
+We think the missingness of the `n_steps` column is **NMAR**. If a user doesn’t fully fill out their recipe or doesn’t bother rating it, they’re probably also less likely to carefully count and enter the number of steps, so the chance that `n_steps` is missing depends on how engaged they were with the recipe. In other words, the missing values in `n_steps` seem tied to unobserved behavior (how much effort someone puts into documenting and reviewing a recipe), not just random chance.
+
+## Missingness Dependency
+
+
+
+
+
 # Baseline Model
 
 The model we chose to do was a linear regression model, since we wanted to predict the number of steps a recipe would take based on numerous factors. For the baseline model we looked at three different features to predict the number of steps, those being minutes, number of ingredients, and whether or not the recipe was healthy. Minutes and number of ingredients were both qualitative data, minutes was given in the dataset as a numerical feature so no changes had to be made. But for number of ingredients, we were given a list of the ingredients in the recipe and just transformed it into the length of the list to see how many ingredients there were in the recipe. We also used the healthy feature which is ordinal data, we used One Hot Encoding to be able to use the feature in our model, so it was just one column with a value of one indicating healthiness and 0 indicating non healthiness. Overall, this model wasn’t horrible, but it did not perform the best based on the RMSE. Our RMSE was 5.871, indicating that the projected number of steps for a recipe was on average almost 6 steps away from the real number of steps, so it did not have the best performance.
