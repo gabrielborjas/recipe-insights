@@ -52,14 +52,24 @@ The original `nutrition` column is stored as a stringified list, so we split it 
 The resulting merged dataset gives us, for every recipe, its nutritional profile, its complexity, and its average user rating—exactly what we need to investigate how healthiness and complexity relate to how people rate recipes on Food.com.
 
 ## Data Cleaning and Exploratory Data Analysis
-|   recipe_id | nutrition                                                        |   minutes |   n_steps | ingredients                                                                                                                                                                    |   rating |   avg |   calories |   total_fat |   sugar |   sodium |   protein |   saturated_fat |   carbs |
-|------------:|:-----------------------------------------------------------------|----------:|----------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------:|------:|-----------:|------------:|--------:|---------:|----------:|----------------:|--------:|
-|      333281 | ['138.4', ' 10.0', ' 50.0', ' 3.0', ' 3.0', ' 19.0', ' 6.0']     |        40 |        10 | ['bittersweet chocolate', 'unsalted butter', 'eggs', 'granulated sugar', 'unsweetened cocoa powder', 'vanilla extract', 'brewed espresso', 'kosher salt', 'all-purpose flour'] |        4 |     4 |      138.4 |          10 |      50 |        3 |         3 |              19 |       6 |
-|      453467 | ['595.1', ' 46.0', ' 211.0', ' 22.0', ' 13.0', ' 51.0', ' 26.0'] |        45 |        12 | ['white sugar', 'brown sugar', 'salt', 'margarine', 'eggs', 'vanilla', 'water', 'all-purpose flour', 'whole wheat flour', 'baking soda', 'chocolate chips']                    |        5 |     5 |      595.1 |          46 |     211 |       22 |        13 |              51 |      26 |
-|      306168 | ['194.8', ' 20.0', ' 6.0', ' 32.0', ' 22.0', ' 36.0', ' 3.0']    |        40 |         6 | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          |        5 |     5 |      194.8 |          20 |       6 |       32 |        22 |              36 |       3 |
-|      306168 | ['194.8', ' 20.0', ' 6.0', ' 32.0', ' 22.0', ' 36.0', ' 3.0']    |        40 |         6 | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          |        5 |     5 |      194.8 |          20 |       6 |       32 |        22 |              36 |       3 |
-|      306168 | ['194.8', ' 20.0', ' 6.0', ' 32.0', ' 22.0', ' 36.0', ' 3.0']    |        40 |         6 | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          |        5 |     5 |      194.8 |          20 |       6 |       32 |        22 |              36 |       3 |
 
+1. Merged the two original datasets on `recipe_id`
+   - This lets us study both the recipe info and the user ratings in one place.
+     
+2. Replaced the ratings of 0 with missing values.
+   - A rating of 0 doesn’t behave like a real score on the 1–5 scale, so we replaced 0s in `ratig` with `NaN`. This keeps those entries from dragging down averages in a misleading way.
+
+
+
+Here is the head of our cleaned DataFrame:
+
+| recipe_id | nutrition                                                        | minutes | n_steps | ingredients                                                                                                                                                                    | rating | avg | calories | total_fat | sugar | sodium | protein | saturated_fat | carbs |
+|----------:|:-----------------------------------------------------------------|--------:|--------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------:|----:|---------:|----------:|------:|-------:|--------:|--------------:|------:|
+| 333281    | ['138.4', ' 10.0', ' 50.0', ' 3.0', ' 3.0', ' 19.0', ' 6.0']     | 40      | 10      | ['bittersweet chocolate', 'unsalted butter', 'eggs', 'granulated sugar', 'unsweetened cocoa powder', 'vanilla extract', 'brewed espresso', 'kosher salt', 'all-purpose flour'] | 4      | 4  | 138.4    | 10       | 50    | 3      | 3       | 19             | 6    |
+| 453467    | ['595.1', ' 46.0', ' 211.0', ' 22.0', ' 13.0', ' 51.0', ' 26.0'] | 45      | 12      | ['white sugar', 'brown sugar', 'salt', 'margarine', 'eggs', 'vanilla', 'water', 'all-purpose flour', 'whole wheat flour', 'baking soda', 'chocolate chips']                    | 5      | 5  | 595.1    | 46       | 211   | 22     | 13      | 51             | 26   |
+| 306168    | ['194.8', ' 20.0', ' 6.0', ' 32.0', ' 22.0', ' 36.0', ' 3.0']    | 40      | 6       | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          | 5      | 5  | 194.8    | 20       | 6     | 32     | 22      | 36             | 3    |
+| 306168    | ['194.8', ' 20.0', ' 6.0', ' 32.0', ' 22.0', ' 36.0', ' 3.0']    | 40      | 6       | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          | 5      | 5  | 194.8    | 20       | 6     | 32     | 22      | 36             | 3    |
+| 306168    | ['194.8', ' 20.0', ' 6.0', ' 32.0', ' 22.0', ' 36.0', ' 3.0']    | 40      | 6       | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          | 5      | 5  | 194.8    | 20       | 6     | 32     | 22      | 36             | 3    |
 
 # Baseline Model
 
