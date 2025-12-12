@@ -64,7 +64,7 @@ One of the new features we added was calories, a numerical value from the origin
 For the groups we chose Healthy (X, 1) vs Unhealthy (Y, 0). We chose these because healthiness could impact how predictable the number of steps a recipe takes, healthy recipes may be simpler and unhealthy recipes may have more complex steps for things like baked goods. Our evaluation metric was Root Mean Squared Error since this is a regression problem, RMSE measures how close the predictions are to the actual number of steps. Our Null hypothesis would be that the model is fair and the number of steps for healthy and unhealthy recipes is the same on average. Our alternate hypothesis is that model is unfair against healthy recipes, and performs higher for unhealthy recipes. Our test statistic was the RMSE for healthy recipes - RMSE for unhealthy recipes, with an observed value of -0.910, showing the model actually performs better for healthy recipes. Our significance value was 0.05. After performing our permutation test, we got a p value of 0.986, and since our p value is much higher than 0.05 we fail to reject the null hypothesis as there is no evidence that the model performs worse against healthy recipes. Based on our results, we can conclude that the model actually performs better for healthy recipes, opposed to performing better on unhealthy recipes.
 
 
-![Permutation tests](Permutation.png)
+<iframe src="assets/fairness_histogram.html" width="100%" height="500"></iframe>
 
 
 
