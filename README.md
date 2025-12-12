@@ -88,11 +88,13 @@ Here is the head of our resulting cleaned DataFrame:
 | 306168    | ['194.8', ' 20.0', ' 6.0', ' 32.0', ' 22.0', ' 36.0', ' 3.0']    | 40      | 6       | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          | 5      | 5  | 194.8    | 20       | 6     | 32     | 22      | 36             | 3    |
 
 
+### Univariate Analysis
+
 This histogram shows how calories are distributed across recipes. Most recipes fall in the 100–300 calorie range, and the bar heights drop off as calories increase, which tells us there are only a small number of extremely high-calorie recipes. However, we also see that there is not many recipes that are less than 100 calories.
 
 <iframe
   src="assets/calories_hist.html"
-  width="800"
+  width="200"
   height="450"
   frameborder="0">
 </iframe>
