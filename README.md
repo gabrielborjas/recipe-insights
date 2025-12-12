@@ -165,6 +165,21 @@ Because the p-value is effectively zero and far below 0.05, we reject the null h
 
 The histogram above compares the distribution of `n_steps` for recipes whose rating is missing (red) versus not missing (blue). Recipes with missing ratings tend to have slightly more steps on average, the red bars are a bit more spread to the right, suggesting that longer, more complex recipes are more likely to be missing ratings.
 
+# Framing a Prediction Problem
+
+## Prediction Task
+The goal of our project is to predict how many steps a new recipe will contain. In other words, given information that is known before a recipe is written (such as its ingredients, expected cooking time, and nutritional characteristics), we want to estimate the complexity of the recipe’s preparation process.
+
+This information is all available at the time of prediction, because ingredients, cooking duration, and nutritional values are typically known before writing the full instructions. We do not use features that require looking at the written instructions themselves (e.g., the actual step text), since those would only exist after the number of steps is determined.
+
+## Prediction Type
+This is a regression problem, not a classification problem. The target we want to predict is n_steps,  a numeric count representing how many steps the recipe author will include in the instructions. Since the response variable is numerical, regression is the best model
+
+## Target Variable and Evaluation Metric
+N_steps is the response variable we chose, because it is a cool way to measure a recipes complexity. Knowing how many steps a recipe takes before hand is useful because it can help a user determine whether or not they want to go through the trouble of making a recipe if it has a large number of steps.
+
+The metric we chose to evaluate the model was Root Mean-Squared Error (RMSE), we chose this because it makes it so our result is the same unit as the variable we are trying to predict. In this case the RMSE helps us see how many steps off we are from the actual amount of steps for a recipe. Thus RMSE is the most natural way to measure our model as it makes it the most interpretable. Other options were R^2 or MAE, but RMSE was the better option because it penalizes larger errors more than small errors, which is important for our purposes. MAE treats all errors the same, and R^2 would be hard to interpret in terms of complexity for a recipe, so we felt like RMSE was the clear best choice.
+
 
 # Baseline Model
 
