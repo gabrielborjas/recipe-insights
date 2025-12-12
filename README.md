@@ -92,13 +92,6 @@ Here is the head of our resulting cleaned DataFrame:
 
 This histogram shows how calories are distributed across recipes. Most recipes fall in the 100–300 calorie range, and the bar heights drop off as calories increase, which tells us there are only a small number of extremely high-calorie recipes. However, we also see that there is not many recipes that are less than 100 calories.
 
-<iframe src="assets/calories_hist.html"
-        width="800"
-        height="400"
-        style="max-width: 800px; display: block; margin: 0 auto;"
-        frameborder="0">
-</iframe>
-
 
 # Baseline Model
 
