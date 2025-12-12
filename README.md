@@ -8,7 +8,7 @@ If you’ve ever searched for a dinner idea online, you know how overwhelming it
 
 In this project, we investigate how the **healthiness** and **complexity** of recipes relate to how highly they are rated on Food.com. Our central question is:
 
-> **How are recipe ratings related to both their nutritional profile (healthy vs. unhealthy)?**
+> **How are recipe steps and complexity related to both their nutritional profile (healthy vs. unhealthy), and minutes taken to complete the recipe?**
 
 To answer this, we use two raw datasets from Food.com: one containing recipe metadata and nutrition information, and another containing user interactions (ratings and reviews). Below, we describe each dataset and the columns that are most relevant to our analysis.
 
