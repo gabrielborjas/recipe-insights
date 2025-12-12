@@ -204,9 +204,8 @@ This gives a relative idea of what healthiness is within our dataset.
 
 ### Running the Permutation Test
 
-We split the data into two groups (healthy vs. unhealthy) and computed the observed test statistic:
+We split the data into two groups (healthy vs. unhealthy) and computed the observed test statistic: Observed difference in mean rating (healthy − unhealthy):** ≈ **−0.058
 
-- **Observed difference in mean rating (healthy − unhealthy):** ≈ **−0.058**
 
 Next, we **randomly shuffled the rating values** 1,000 times, each time keeping the healthy/unhealthy labels fixed and recomputing the difference in mean rating between the two groups.  
 These 1,000 simulated differences form an empirical distribution of our test statistic **under the null hypothesis** that ratings are unrelated to healthiness. From this, we computed the p-value ≈ 1.0
