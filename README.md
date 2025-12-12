@@ -130,7 +130,14 @@ This bar chart shows that the average protein (PDV) is pretty similar across all
 
 We think the missingness of the `n_steps` column is **NMAR**. If a user doesn’t fully fill out their recipe or doesn’t bother rating it, they’re probably also less likely to carefully count and enter the number of steps, so the chance that `n_steps` is missing depends on how engaged they were with the recipe. In other words, the missing values in `n_steps` seem tied to unobserved behavior (how much effort someone puts into documenting and reviewing a recipe), not just random chance.
 
-## Missingness Dependency
+### Missingness Dependency
+
+<iframe
+  src="assets/when_missing_vs_not.html"
+  width="800"
+  height="500"
+  frameborder="0">
+</iframe>
 
 
 
