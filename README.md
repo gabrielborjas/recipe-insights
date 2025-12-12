@@ -144,7 +144,7 @@ The missingness of `rating` **does** depend on `n_steps`.
 The absolute difference in the mean of `n_steps` between the group with missing ratings and the group with non-missing ratings.
 
 **Significance Level:**  
-0.05
+**α = 0.05**
 
 We ran a permutation test by randomly shuffling whether rating was missing 1000 times and recording the mean difference each time, giving us 1000 simulated values of our test statistic.
 
@@ -167,6 +167,45 @@ The histogram above compares the distribution of `n_steps` for recipes whose rat
 
 
 ## Hypothesis Testing
+
+Earlier, we explored how different nutrition variables (calories, fat, sugar, sodium, protein) relate to ratings.  
+Now we ask a more direct question:
+
+> Do users actually **rate healthy recipes more highly** than unhealthy ones, or do they treat them about the same?
+
+### Null Hypothesis (H₀)
+In the population, *healthy* and *unhealthy* recipes have the **same** average rating.  
+Any difference we see in our sample is due to random chance.
+
+### Alternative Hypothesis (Hₐ)
+In the population, **healthy recipes have a higher average rating** than unhealthy recipes.
+
+### Test Statistic
+Our test statistic is the **difference in mean rating**
+
+\[
+\text{mean(avg of healthy)} - \text{mean(avg of unhealthy)}.
+\]
+
+We use this statistic because it directly measures how much higher (or lower) the average rating of healthy recipes is compared to unhealthy recipes
+
+### Significance Level
+**α = 0.05**
+
+### How We Defined “Healthy”
+
+Before running the test, we restricted to recipes that had no missing nutritional information and one row per recipe.  
+We then labeled a recipe as **healthy** if it met all of the following:
+
+- calories ≤ median calories  
+- total fat ≤ median total fat  
+- sugar ≤ median sugar  
+- sodium ≤ median sodium  
+- protein ≥ median protein
+
+Recipes that didn’t satisfy all of these conditions were labeled **unhealthy**.  
+This gives a relative notion of healthiness within our dataset
+
 
 
 ## Framing a Prediction Problem
