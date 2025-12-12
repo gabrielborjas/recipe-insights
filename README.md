@@ -181,11 +181,7 @@ Any difference we see in our sample is due to random chance.
 In the population, **healthy recipes have a higher average rating** than unhealthy recipes.
 
 ### Test Statistic
-Our test statistic is the **difference in mean rating**
-
-\[
-\text{mean(avg of healthy)} - \text{mean(avg of unhealthy)}.
-\]
+Our test statistic is the difference in mean ratings between "healthy" and "unhealthy" recipes.
 
 We use this statistic because it directly measures how much higher (or lower) the average rating of healthy recipes is compared to unhealthy recipes
 
@@ -204,9 +200,20 @@ We then labeled a recipe as **healthy** if it met all of the following:
 - protein ≥ median protein
 
 Recipes that didn’t satisfy all of these conditions were labeled **unhealthy**.  
-This gives a relative notion of healthiness within our dataset
+This gives a relative idea of what healthiness is within our dataset.
 
+### Running the Permutation Test
 
+We split the data into two groups (healthy vs. unhealthy) and computed the observed test statistic:
+
+- **Observed difference in mean rating (healthy − unhealthy):** ≈ **−0.058**
+
+Next, we **randomly shuffled the rating values** 1,000 times, each time keeping the healthy/unhealthy labels fixed and recomputing the difference in mean rating between the two groups.  
+These 1,000 simulated differences form an empirical distribution of our test statistic **under the null hypothesis** that ratings are unrelated to healthiness. From this, we computed the p-value ≈ 1.0
+
+### Conclusion
+
+The observed difference is slightly **negative** (healthy recipes are rated a bit lower on average), and the p-value is extremely large and far above 0.05. So, we **fail to reject the null hypothesis**. Based on this dataset and our definition of healthiness, we cannot conclude that users reward healthier recipes with higher ratings.
 
 ## Framing a Prediction Problem
 
