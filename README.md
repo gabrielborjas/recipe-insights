@@ -8,7 +8,7 @@ If you’ve ever searched for a dinner idea online, you know how overwhelming it
 
 In this project, we investigate how the **healthiness** and **complexity** of recipes relate to how highly they are rated on Food.com. Our central question is:
 
-> **How are recipe ratings related to both their nutritional profile (healthy vs. unhealthy) and their complexity (number of steps)?**
+> **How are recipe ratings related to both their nutritional profile (healthy vs. unhealthy)?**
 
 To answer this, we use two raw datasets from Food.com: one containing recipe metadata and nutrition information, and another containing user interactions (ratings and reviews). Below, we describe each dataset and the columns that are most relevant to our analysis.
 
@@ -50,6 +50,16 @@ To study these questions, we combined the two raw files into a single working da
 The original `nutrition` column is stored as a stringified list, so we split it into separate numeric columns for key nutrients: `calories`, `total_fat`, `sugar`, `sodium`, `protein`, `saturated_fat`, and `carbs`. Along with these, we keep measures of recipe complexity such as `n_steps` (and later, `minutes` and `n_ingredients`).
 
 The resulting merged dataset gives us, for every recipe, its nutritional profile, its complexity, and its average user rating—exactly what we need to investigate how healthiness and complexity relate to how people rate recipes on Food.com.
+
+## Data Cleaning and Exploratory Data Analysis
+|   recipe_id | nutrition                                                        |   minutes |   n_steps | ingredients                                                                                                                                                                    |   rating |   avg |   calories |   total_fat |   sugar |   sodium |   protein |   saturated_fat |   carbs |
+|------------:|:-----------------------------------------------------------------|----------:|----------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------:|------:|-----------:|------------:|--------:|---------:|----------:|----------------:|--------:|
+|      333281 | ['138.4', ' 10.0', ' 50.0', ' 3.0', ' 3.0', ' 19.0', ' 6.0']     |        40 |        10 | ['bittersweet chocolate', 'unsalted butter', 'eggs', 'granulated sugar', 'unsweetened cocoa powder', 'vanilla extract', 'brewed espresso', 'kosher salt', 'all-purpose flour'] |        4 |     4 |      138.4 |          10 |      50 |        3 |         3 |              19 |       6 |
+|      453467 | ['595.1', ' 46.0', ' 211.0', ' 22.0', ' 13.0', ' 51.0', ' 26.0'] |        45 |        12 | ['white sugar', 'brown sugar', 'salt', 'margarine', 'eggs', 'vanilla', 'water', 'all-purpose flour', 'whole wheat flour', 'baking soda', 'chocolate chips']                    |        5 |     5 |      595.1 |          46 |     211 |       22 |        13 |              51 |      26 |
+|      306168 | ['194.8', ' 20.0', ' 6.0', ' 32.0', ' 22.0', ' 36.0', ' 3.0']    |        40 |         6 | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          |        5 |     5 |      194.8 |          20 |       6 |       32 |        22 |              36 |       3 |
+|      306168 | ['194.8', ' 20.0', ' 6.0', ' 32.0', ' 22.0', ' 36.0', ' 3.0']    |        40 |         6 | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          |        5 |     5 |      194.8 |          20 |       6 |       32 |        22 |              36 |       3 |
+|      306168 | ['194.8', ' 20.0', ' 6.0', ' 32.0', ' 22.0', ' 36.0', ' 3.0']    |        40 |         6 | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          |        5 |     5 |      194.8 |          20 |       6 |       32 |        22 |              36 |       3 |
+
 
 # Baseline Model
 
