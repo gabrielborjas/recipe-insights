@@ -53,15 +53,32 @@ The resulting merged dataset gives us, for every recipe, its nutritional profile
 
 ## Data Cleaning and Exploratory Data Analysis
 
-1. Merged the two original datasets on `recipe_id`
+1. Merge the two original datasets on `recipe_id`
    - This lets us study both the recipe info and the user ratings in one place.
      
-2. Replaced the ratings of 0 with missing values.
+     
+2. Replace the ratings of 0 with missing values.
    - A rating of 0 doesn’t behave like a real score on the 1–5 scale, so we replaced 0s in `ratig` with `NaN`. This keeps those entries from dragging down averages in a misleading way.
 
 
+3. Compute an average rating per recipe.
+   - We grouped by `recipe_id` to calculate the mean of `rating` for each recipe and stored it in a new column, `avg`. This gives us a single and simple rating for each recipe.
 
-Here is the head of our cleaned DataFrame:
+  
+4. Break the nutrition list column into separate number columns for each nutrient.
+   - The original `nutrition` column is a string that stores a list of values. We cleaned the brackets and split it into seven numbers, then created the following columns:
+     - `calories`
+     - `total_fat`
+     - `sugar`
+     - `sodium`
+     - `protein`
+     - `saturated_fat`
+     - `carbs`  
+   - Turning this list into separate columns makes it much easier to analyze the different amount of specific nutrients are in each recipe.
+
+
+
+Here is the head of our resulting cleaned DataFrame:
 
 | recipe_id | nutrition                                                        | minutes | n_steps | ingredients                                                                                                                                                                    | rating | avg | calories | total_fat | sugar | sodium | protein | saturated_fat | carbs |
 |----------:|:-----------------------------------------------------------------|--------:|--------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------:|----:|---------:|----------:|------:|-------:|--------:|--------------:|------:|
