@@ -31,7 +31,8 @@ The first dataset, `recipe`, contains 83,782 rows, indicating 83,782 unique reci
 | `ingredients`  | Text listing the ingredients used in the recipe                                                |
 | `n_ingredients`| Number of ingredients used in the recipe                                                       |
 
-From this dataset, we derive numerical measures of **healthiness** (by unpacking the `nutrition` list into separate columns like calories, fat, sugar, protein, and sodium) and **complexity** (using `n_steps`).
+From this dataset, we derive numerical measures of **healthiness** (by unpacking the `nutrition` list into separate columns like calories, fat, sugar, protein, and sodium) and **complexity** (using `n_steps`). The most important columns to from this data set is `recipe_id`, `minutes`, `n_steps`, `ingredients`,
+`n_ingredients` and `nutrition`.
 
 ### The `interactions` dataset
 
