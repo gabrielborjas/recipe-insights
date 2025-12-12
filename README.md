@@ -65,7 +65,7 @@ The resulting merged dataset gives us, for every recipe, its nutritional profile
    - We grouped by `recipe_id` to calculate the mean of `rating` for each recipe and stored it in a new column, `avg`. This gives us a single and simple rating for each recipe.
 
   
-4. Break the nutrition list column into separate number columns for each nutrient.
+4. Break the nutrition list column into separate numerical columns for each nutrient.
    - The original `nutrition` column is a string that stores a list of values. We cleaned the brackets and split it into seven numbers, then created the following columns:
      - `calories`
      - `total_fat`
