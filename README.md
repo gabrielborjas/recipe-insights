@@ -77,7 +77,6 @@ The resulting merged dataset gives us, for every recipe, its nutritional profile
    - Turning this list into separate columns makes it much easier to analyze the different amount of specific nutrients are in each recipe.
 
 
-
 Here is the head of our resulting cleaned DataFrame:
 
 | recipe_id | nutrition                                                        | minutes | n_steps | ingredients                                                                                                                                                                    | rating | avg | calories | total_fat | sugar | sodium | protein | saturated_fat | carbs |
@@ -88,6 +87,15 @@ Here is the head of our resulting cleaned DataFrame:
 | 306168    | ['194.8', ' 20.0', ' 6.0', ' 32.0', ' 22.0', ' 36.0', ' 3.0']    | 40      | 6       | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          | 5      | 5  | 194.8    | 20       | 6     | 32     | 22      | 36             | 3    |
 | 306168    | ['194.8', ' 20.0', ' 6.0', ' 32.0', ' 22.0', ' 36.0', ' 3.0']    | 40      | 6       | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          | 5      | 5  | 194.8    | 20       | 6     | 32     | 22      | 36             | 3    |
 
+
+This histogram shows how calories are distributed across recipes. Most recipes fall in the 100–300 calorie range, and the bar heights drop off as calories increase, which tells us there are only a small number of extremely high-calorie recipes. However, we also see that there is not many recipes that are less than 100 calories.
+
+<iframe
+  src="assets/calories_hist.html"
+  width="800"
+  height="450"
+  frameborder="0">
+</iframe>
 # Baseline Model
 
 The model we chose to do was a linear regression model, since we wanted to predict the number of steps a recipe would take based on numerous factors. For the baseline model we looked at three different features to predict the number of steps, those being minutes, number of ingredients, and whether or not the recipe was healthy. Minutes and number of ingredients were both qualitative data, minutes was given in the dataset as a numerical feature so no changes had to be made. But for number of ingredients, we were given a list of the ingredients in the recipe and just transformed it into the length of the list to see how many ingredients there were in the recipe. We also used the healthy feature which is ordinal data, we used One Hot Encoding to be able to use the feature in our model, so it was just one column with a value of one indicating healthiness and 0 indicating non healthiness. Overall, this model wasn’t horrible, but it did not perform the best based on the RMSE. Our RMSE was 5.871, indicating that the projected number of steps for a recipe was on average almost 6 steps away from the real number of steps, so it did not have the best performance.
