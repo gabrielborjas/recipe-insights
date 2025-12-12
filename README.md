@@ -132,6 +132,30 @@ We think the missingness of the `n_steps` column is **NMAR**. If a user doesn’
 
 ### Missingness Dependency
 
+We next explore whether the missingness of the `rating` column depends on other columns in our data. In particular, we tested if `rating` being missing is related to the number of steps in the recipe (`n_steps`). For this test, we used a permutation test based on the **difference in mean** of the column between recipes **with** missing ratings and recipes **without** missing ratings.
+
+**Null Hypothesis:**  
+The missingness of `rating` does **not** depend on `n_steps`.
+
+**Null Hypothesis:**  
+The missingness of `rating` does **not** depend on `n_steps`. 
+
+**Test Statistic:**  
+The absolute difference in the mean of `n_steps` between the group with missing ratings and the group with non-missing ratings.
+
+**Significance Level:**  
+0.05
+
+We ran a permutation test by randomly shuffling whether rating was missing 1000 times and recording the mean difference each time, giving us 1000 simulated values of our test statistic.
+
+**Observed Statistic and p-value:**  
+Our observed difference in mean `n_steps` was about **1.34**, and the permutation test gave a p-value of **≈ 0.000**
+
+**Interpretation:**  
+Because the p-value is effectively zero and far below 0.05, we reject the null hypothesis. This suggests that the missingness of `rating` is **not random with respect to `n_steps`**. Recipes with missing ratings tend to have a different number of steps than those with ratings.
+
+
+
 <iframe
   src="assets/when_missing_vs_not.html"
   width="800"
