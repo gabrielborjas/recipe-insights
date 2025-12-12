@@ -137,8 +137,8 @@ We next explore whether the missingness of the `rating` column depends on other 
 **Null Hypothesis:**  
 The missingness of `rating` does **not** depend on `n_steps`.
 
-**Null Hypothesis:**  
-The missingness of `rating` does **not** depend on `n_steps`. 
+**Alternative Hypothesis:**  
+The missingness of `rating` **does** depend on `n_steps`. 
 
 **Test Statistic:**  
 The absolute difference in the mean of `n_steps` between the group with missing ratings and the group with non-missing ratings.
