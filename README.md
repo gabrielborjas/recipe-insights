@@ -100,6 +100,13 @@ This histogram shows how calories are distributed across recipes. Most recipes f
 </iframe>
 
 
+### Bivariate Analysis: Nutrition vs. Rating
+
+This correlation heatmap compares each nutrition column to the average rating. Most of the nutrition features (calories, fat, sugar, carbs, etc.) are strongly positively correlated with each other, but their correlations with `avg` are all very close to zero. This suggests that, in this dataset, recipes aren’t really rated higher or lower based on their nutrition numbers alone.
+
+<iframe src="assets/nutrition_rating_corr.html" width="800" height="550" frameborder="0"></iframe>
+
+
 # Baseline Model
 
 The model we chose to do was a linear regression model, since we wanted to predict the number of steps a recipe would take based on numerous factors. For the baseline model we looked at three different features to predict the number of steps, those being minutes, number of ingredients, and whether or not the recipe was healthy. Minutes and number of ingredients were both qualitative data, minutes was given in the dataset as a numerical feature so no changes had to be made. But for number of ingredients, we were given a list of the ingredients in the recipe and just transformed it into the length of the list to see how many ingredients there were in the recipe. We also used the healthy feature which is ordinal data, we used One Hot Encoding to be able to use the feature in our model, so it was just one column with a value of one indicating healthiness and 0 indicating non healthiness. Overall, this model wasn’t horrible, but it did not perform the best based on the RMSE. Our RMSE was 5.871, indicating that the projected number of steps for a recipe was on average almost 6 steps away from the real number of steps, so it did not have the best performance.
